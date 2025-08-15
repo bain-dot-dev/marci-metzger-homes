@@ -163,7 +163,9 @@ export default function CustomCursor() {
         return (
           <div
             key={index}
-            ref={(el) => (trailRefs.current[index] = el)}
+            ref={(el) => {
+              trailRefs.current[index] = el
+            }}
             className={`fixed pointer-events-none z-[${9998 - index}] hidden lg:block transition-opacity duration-100 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}

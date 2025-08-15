@@ -109,7 +109,7 @@ export default function TestimonialsSection() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            Don't just take our word for it. Here's what our satisfied clients have to say about their experience
+            Don&apos;t just take our word for it. Here&apos;s what our satisfied clients have to say about their experience
             working with us.
           </p>
           <div
@@ -127,7 +127,7 @@ export default function TestimonialsSection() {
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
-          <Card className="p-8 md:p-12 bg-gradient-to-br from-background to-secondary/20 shadow-2xl">
+          <Card className="p-14 md:p-16 bg-gradient-to-br from-background to-secondary/20 shadow-2xl">
             {/* Quote Icon */}
             <div className="flex justify-center mb-6">
               <Quote className="w-12 h-12 text-accent transform rotate-180" />
@@ -144,7 +144,7 @@ export default function TestimonialsSection() {
 
               {/* Testimonial Text */}
               <blockquote className="text-lg md:text-xl text-foreground leading-relaxed mb-8 font-light italic">
-                "{testimonials[currentIndex].text}"
+                &quot;{testimonials[currentIndex].text}&quot;
               </blockquote>
 
               {/* Client Info */}

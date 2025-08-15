@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 const galleryImages = [
   {
@@ -134,10 +135,12 @@ export default function PhotoGallery() {
         >
           {/* Main Image Display */}
           <div className="relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-            <img
+            <Image
               src={galleryImages[currentIndex].src || "/placeholder.svg"}
               alt={galleryImages[currentIndex].alt}
               className="w-full h-full object-cover transition-all duration-700 ease-in-out"
+              fill
+              priority
             />
 
             {/* Image Overlay */}
@@ -191,7 +194,7 @@ export default function PhotoGallery() {
                   index === currentIndex ? "ring-2 ring-accent scale-110" : "opacity-60 hover:opacity-100"
                 }`}
               >
-                <img src={image.src || "/placeholder.svg"} alt={image.alt} className="w-full h-full object-cover" />
+                <Image src={image.src || "/placeholder.svg"} alt={image.alt} className="w-full h-full object-cover" fill />
               </button>
             ))}
           </div>

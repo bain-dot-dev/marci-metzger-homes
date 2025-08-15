@@ -13,13 +13,13 @@ import {
   Phone,
   Mail,
   Clock,
-  Facebook,
-  Instagram,
-  Linkedin,
+  // Facebook,
+  // Instagram,
+  // Linkedin,
   Send,
   Loader2,
   MessageCircle,
-  Star,
+  // Star,
 } from "lucide-react";
 
 export default function ContactSection() {
@@ -72,7 +72,7 @@ export default function ContactSection() {
 
   return (
     <section ref={sectionRef} id="contact" className="py-20 bg-secondary/20">
-      <div className="container mx-auto px-4">
+      <div className="container flex flex-col gap-12 mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2
@@ -282,23 +282,7 @@ export default function ContactSection() {
               </div>
             </Card>
 
-            {/* work on the interactive map */}
-
-            {/* Map Placeholder */}
-            <Card className="p-8">
-              <h3 className="font-serif text-2xl font-semibold text-primary mb-6">
-                Find Us
-              </h3>
-              <div className="bg-muted rounded-lg h-64 flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <MapPin className="w-12 h-12 mx-auto mb-4" />
-                  <p>Interactive Map</p>
-                  <p className="text-sm">3190 HW-160, Suite F, Pahrump, NV</p>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="p-8">
+            {/* <Card className="p-8">
               <h3 className="font-serif text-2xl font-semibold text-primary mb-6">
                 Follow Us
               </h3>
@@ -340,9 +324,29 @@ export default function ContactSection() {
                   <Star className="w-5 h-5" />
                 </a>
               </div>
-            </Card>
+            </Card> */}
           </div>
         </div>
+
+        {/* Map Placeholder */}
+        <Card className="p-8">
+          <h3 className="font-serif text-2xl font-semibold text-primary mb-6">
+            Find Us
+          </h3>
+          <div className="rounded-lg overflow-hidden h-64 shadow-inner">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3218.8!2d-116.0!3d36.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c92c5c5c5c5c5c%3A0x5c5c5c5c5c5c5c5c!2s3190%20NV-160%2C%20Pahrump%2C%20NV%2089048!5e0!3m2!1sen!2sus!4v1692000000000!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Marci Metzger Homes Office Location"
+              className="w-full h-full"
+            ></iframe>
+          </div>
+        </Card>
       </div>
     </section>
   );

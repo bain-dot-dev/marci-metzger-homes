@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 export default function HeroSection() {
   const [scrollY, setScrollY] = useState(0);
@@ -56,7 +57,7 @@ export default function HeroSection() {
             }`}
             style={{ transitionDelay: "0.2s" }}
           >
-            Pahrump's #1
+            Pahrump&apos;s #1
             <br />
             <span className="text-accent">Residential REALTOR</span>
           </h1>
@@ -146,10 +147,12 @@ export default function HeroSection() {
           <div className="flex flex-wrap justify-evenly items-center gap-8 md:gap-24">
             {/* Equal Housing Opportunity */}
             <div className="animate-float-slow opacity-80 hover:opacity-100 transition-opacity duration-300">
-              <img
+              <Image
                 src="/trusted-partners/equal-housing-opportunity.png"
                 alt="Equal Housing Opportunity"
                 className="h-12 md:h-24 w-auto filter brightness-0 invert"
+                width={96}
+                height={96}
               />
             </div>
 
@@ -158,10 +161,12 @@ export default function HeroSection() {
               className="animate-float-slow opacity-80 hover:opacity-100 transition-opacity duration-300"
               style={{ animationDelay: "0.5s" }}
             >
-              <img
+              <Image
                 src="/trusted-partners/pahrump-valley-chamber-of-commerce.png"
                 alt="Pahrump Valley Chamber of Commerce"
                 className="h-16 md:h-32 w-auto"
+                width={128}
+                height={128}
               />
             </div>
 
@@ -170,10 +175,12 @@ export default function HeroSection() {
               className="animate-float-slow opacity-80 hover:opacity-100 transition-opacity duration-300"
               style={{ animationDelay: "1s" }}
             >
-              <img
+              <Image
                 src="/trusted-partners/the-ridge-realty-group.png"
                 alt="The Ridge Realty Group"
                 className="h-12 md:h-24 w-auto"
+                width={96}
+                height={96}
               />
             </div>
 
@@ -182,10 +189,12 @@ export default function HeroSection() {
               className="animate-float-slow opacity-80 hover:opacity-100 transition-opacity duration-300"
               style={{ animationDelay: "1.5s" }}
             >
-              <img
+              <Image
                 src="/trusted-partners/realtor.png"
                 alt="Realtor"
                 className="h-14 md:h-28 w-auto"
+                width={112}
+                height={112}
               />
             </div>
           </div>

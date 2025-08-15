@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Bed, Bath, Square, MapPin, ArrowRight, Heart } from "lucide-react";
+import Image from "next/image";
 
 export default function PropertyGallery() {
   const [isVisible, setIsVisible] = useState(false);
@@ -37,69 +38,69 @@ export default function PropertyGallery() {
   const properties = [
     {
       id: 1,
-      image: "/placeholder.svg?height=400&width=600",
-      price: "$485,000",
-      beds: 3,
-      baths: 2,
-      sqft: "2,150",
-      location: "Location 1",
+      image: "/featured-properties/listing-1.jpg",
+      price: "$1,950,000",
+      beds: 4,
+      baths: 5,
+      sqft: "5,530",
+      location: "4751 W Adkisson Street, Pahrump, Nevada NV89060-3541",
       status: "New Listing",
-      type: "Single Family",
+      type: "Residential",
     },
     {
       id: 2,
-      image: "/placeholder.svg?height=400&width=600",
-      price: "$625,000",
-      beds: 4,
-      baths: 3,
-      sqft: "2,850",
-      location: "Location 2",
+      image: "/featured-properties/listing-2.jpg",
+      price: "$1,285,000",
+      beds: 1,
+      baths: 9,
+      sqft: "572",
+      location: "3780 E Kellogg Road, Pahrump, Nevada NV89061-7996",
       status: "Price Reduced",
-      type: "Mediterranean",
+      type: "Residential",
     },
     {
       id: 3,
-      image: "/placeholder.svg?height=400&width=600",
-      price: "$750,000",
-      beds: 4,
-      baths: 4,
-      sqft: "3,200",
-      location: "Location 3",
+      image: "/featured-properties/listing-3.jpg",
+      price: "$1,500,000",
+      beds: 3,
+      baths: 3,
+      sqft: "1,876",
+      location: "2221 W Windsong Lane, Pahrump, Nevada NV89048",
       status: "Featured",
-      type: "Golf Course",
+      type: "Residential",
     },
     {
       id: 4,
-      image: "/placeholder.svg?height=400&width=600",
-      price: "$395,000",
-      beds: 3,
-      baths: 2,
-      sqft: "1,950",
-      location: "Location 4",
-      status: "Just Listed",
-      type: "Contemporary",
+      image: "/featured-properties/listing-4.jpg",
+      price: "$985,000",
+      beds: 5,
+      baths: 4,
+      sqft: "3,716",
+      location: "2181 E Winery Road, Pahrump, Nevada NV89048-6294",
+      status: "Luxury",
+      type: "Residential",
     },
     {
       id: 5,
-      image: "/placeholder.svg?height=400&width=600",
-      price: "$890,000",
-      beds: 5,
+      image: "/featured-properties/listing-5.jpg",
+      price: "$976,000",
+      beds: 4,
       baths: 4,
       sqft: "4,100",
-      location: "Location 5",
-      status: "Luxury",
-      type: "Custom Built",
+      location: "3600 E Bridger Street, Pahrump, Nevada NV89061",
+      status: "Just Listed",
+      type: "Residential",
     },
     {
       id: 6,
-      image: "/placeholder.svg?height=400&width=600",
-      price: "$525,000",
-      beds: 3,
+      image: "/featured-properties/listing-6.jpg",
+      price: "$883,000",
+      beds: 4,
       baths: 3,
-      sqft: "2,400",
-      location: "Location 6",
+      sqft: "2,943",
+      location: "671 W Hickory Street, Pahrump, Nevada NV89048-0795",
       status: "Move-in Ready",
-      type: "Ranch Style",
+      type: "Residential",
     },
   ];
 
@@ -131,7 +132,7 @@ export default function PropertyGallery() {
                 : "translate-y-8 opacity-0"
             }`}
           >
-            Discover exceptional homes in Pahrump's most desirable
+            Discover exceptional homes in Pahrump&apos;s most desirable
             neighborhoods, from golf course estates to modern family residences.
           </p>
           <div
@@ -155,10 +156,12 @@ export default function PropertyGallery() {
             >
               {/* Property Image */}
               <div className="relative overflow-hidden">
-                <img
+                <Image
                   src={property.image || "/placeholder.svg"}
                   alt={`${property.type} in ${property.location}`}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                  width={400}
+                  height={256}
                 />
 
                 {/* Status Badge */}

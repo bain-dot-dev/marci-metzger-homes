@@ -94,7 +94,7 @@ export default function MountainFallsShowcase() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            Experience luxury living in Nevada's premier golf course community, where world-class amenities meet
+            Experience luxury living in Nevada&apos;s premier golf course community, where world-class amenities meet
             breathtaking natural beauty in the heart of Pahrump Valley.
           </p>
           <div

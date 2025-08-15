@@ -133,7 +133,7 @@ export default function ServicesSection() {
           }`}
         >
           <p className="text-lg text-muted-foreground mb-6">
-            Ready to start your real estate journey? Let's discuss your goals.
+            Ready to start your real estate journey? Let&apos;s discuss your goals.
           </p>
           <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3">
             Schedule a Consultation

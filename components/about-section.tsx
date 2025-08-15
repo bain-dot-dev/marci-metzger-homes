@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Users, Award, DollarSign, Clock } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -96,10 +97,13 @@ export default function AboutSection() {
             }`}
           >
             <div className="relative">
-              <img
+              <Image
                 src="/headshot/marci-metzger.webp"
                 alt="Marci Metzger - Professional Headshot"
                 className="w-full h-auto rounded-lg shadow-2xl"
+                width={600}
+                height={800}
+                priority
               />
               <div className="absolute -bottom-6 -right-6 bg-accent text-accent-foreground p-4 rounded-lg shadow-lg">
                 <div className="text-center">
@@ -127,7 +131,8 @@ export default function AboutSection() {
                 Metzger brings unparalleled knowledge and dedication to every
                 transaction. Originally a successful broker in Seattle, Marci
                 discovered the beauty and opportunity of Pahrump, Nevada, and
-                has since become the area's most trusted residential specialist.
+                has since become the area&apos;s most trusted residential
+                specialist.
               </p>
               <p>
                 Marci combines extensive experience with cutting-edge marketing
@@ -137,7 +142,7 @@ export default function AboutSection() {
                 personalized service and professional expertise.
               </p>
               <p>
-                Whether you're buying your first home, selling a cherished
+                Whether you&apos;re buying your first home, selling a cherished
                 property, or building an investment portfolio, Marci provides
                 the personalized attention and professional expertise you
                 deserve with nearly three decades of proven success.
@@ -151,7 +156,7 @@ export default function AboutSection() {
               </div>
               <div className="flex items-center gap-2 text-accent">
                 <Users className="w-5 h-5" />
-                <span className="font-semibold">Pahrump's #1 REALTOR</span>
+                <span className="font-semibold">Pahrump&apos;s #1 REALTOR</span>
               </div>
             </div>
           </div>
