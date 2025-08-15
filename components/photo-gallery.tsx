@@ -1,9 +1,8 @@
-"use client"
+"use client";
 
-import { useEffect, useState, useRef } from "react"
-import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
+import { useEffect, useState, useRef } from "react";
+import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const galleryImages = [
   {
@@ -41,65 +40,67 @@ const galleryImages = [
     alt: "Luxury Pool Home Mountain Views",
     caption: "Luxury Pool Home Mountain Views",
   },
-]
+];
 
 export default function PhotoGallery() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isPlaying, setIsPlaying] = useState(true)
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
-  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
-      { threshold: 0.3 },
-    )
+      { threshold: 0.3 }
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (isPlaying) {
       intervalRef.current = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % galleryImages.length)
-      }, 4000) // 4 second delay between images
+        setCurrentIndex((prev) => (prev + 1) % galleryImages.length);
+      }, 4000); // 4 second delay between images
     } else {
       if (intervalRef.current) {
-        clearInterval(intervalRef.current)
+        clearInterval(intervalRef.current);
       }
     }
 
     return () => {
       if (intervalRef.current) {
-        clearInterval(intervalRef.current)
+        clearInterval(intervalRef.current);
       }
-    }
-  }, [isPlaying])
+    };
+  }, [isPlaying]);
 
   const goToSlide = (index: number) => {
-    setCurrentIndex(index)
-  }
+    setCurrentIndex(index);
+  };
 
   const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)
-  }
+    setCurrentIndex(
+      (prev) => (prev - 1 + galleryImages.length) % galleryImages.length
+    );
+  };
 
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % galleryImages.length)
-  }
+    setCurrentIndex((prev) => (prev + 1) % galleryImages.length);
+  };
 
   const togglePlayPause = () => {
-    setIsPlaying(!isPlaying)
-  }
+    setIsPlaying(!isPlaying);
+  };
 
   return (
     <section ref={sectionRef} className="py-20 bg-background">
@@ -108,17 +109,22 @@ export default function PhotoGallery() {
         <div className="text-center mb-16">
           <h2
             className={`font-serif text-4xl md:text-5xl font-bold text-primary mb-6 transition-all duration-1000 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
           >
             Featured Properties Gallery
           </h2>
           <p
             className={`text-muted-foreground text-lg max-w-2xl mx-auto transition-all duration-1000 delay-200 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
           >
-            Explore our stunning collection of luxury homes and exceptional properties in Pahrump
+            Explore our stunning collection of luxury homes and exceptional
+            properties in Pahrump
           </p>
           <div
             className={`w-24 h-1 bg-accent mx-auto mt-6 transition-all duration-1000 delay-400 ${
@@ -135,12 +141,10 @@ export default function PhotoGallery() {
         >
           {/* Main Image Display */}
           <div className="relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-            <Image
+            <img
               src={galleryImages[currentIndex].src || "/placeholder.svg"}
               alt={galleryImages[currentIndex].alt}
               className="w-full h-full object-cover transition-all duration-700 ease-in-out"
-              fill
-              priority
             />
 
             {/* Image Overlay */}
@@ -148,7 +152,9 @@ export default function PhotoGallery() {
 
             {/* Caption */}
             <div className="absolute bottom-6 left-6 text-white">
-              <h3 className="text-2xl font-serif font-semibold mb-2">{galleryImages[currentIndex].caption}</h3>
+              <h3 className="text-2xl font-serif font-semibold mb-2">
+                {galleryImages[currentIndex].caption}
+              </h3>
               <p className="text-white/80">
                 {currentIndex + 1} of {galleryImages.length}
               </p>
@@ -180,7 +186,11 @@ export default function PhotoGallery() {
               className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm"
               onClick={togglePlayPause}
             >
-              {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+              {isPlaying ? (
+                <Pause className="w-5 h-5" />
+              ) : (
+                <Play className="w-5 h-5" />
+              )}
             </Button>
           </div>
 
@@ -191,10 +201,16 @@ export default function PhotoGallery() {
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden transition-all duration-300 ${
-                  index === currentIndex ? "ring-2 ring-accent scale-110" : "opacity-60 hover:opacity-100"
+                  index === currentIndex
+                    ? "ring-2 ring-accent scale-110"
+                    : "opacity-60 hover:opacity-100"
                 }`}
               >
-                <Image src={image.src || "/placeholder.svg"} alt={image.alt} className="w-full h-full object-cover" fill />
+                <img
+                  src={image.src || "/placeholder.svg"}
+                  alt={image.alt}
+                  className="w-full h-full object-cover"
+                />
               </button>
             ))}
           </div>
@@ -206,7 +222,9 @@ export default function PhotoGallery() {
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? "bg-accent scale-125" : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  index === currentIndex
+                    ? "bg-accent scale-125"
+                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
                 }`}
               />
             ))}
@@ -214,5 +232,5 @@ export default function PhotoGallery() {
         </div>
       </div>
     </section>
-  )
+  );
 }

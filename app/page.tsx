@@ -18,7 +18,7 @@ export default function Home() {
 
       <CustomCursor />
 
-      <main className="min-h-screen animate-page-load">
+      <main className="min-h-screen animate-page-load overflow-hidden">
         <Navigation />
 
         {/* Enhanced Hero Section with Parallax */}
