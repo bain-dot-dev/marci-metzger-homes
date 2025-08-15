@@ -33,7 +33,7 @@ export default function PageLoader() {
         </div>
 
         {/* Progress Bar */}
-        <div className="w-64 h-2 bg-white/20 rounded-full overflow-hidden">
+        <div className="w-64 h-2 bg-white/20 rounded-full overflow-hidden mx-auto">
           <div className="h-full bg-accent transition-all duration-300 ease-out" style={{ width: `${progress}%` }} />
         </div>
 
